@@ -2,7 +2,7 @@
   "pipeline": {
     "generate": {},
     "build": {
-      "dependsOn": ["generate", "^build"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**", "artifacts/**", "cache/**", "generated/**", "typechain/**"]
     },
     "test": {
@@ -13,9 +13,6 @@
     },
     "dev": {
       "cache": false
-    },
-    "test-and-build": {
-      "dependsOn": ["test", "build"]
     }
   }
 }

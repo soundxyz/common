@@ -1,9 +1,11 @@
 import { buildCode } from 'bob-ts';
 import { execaCommand } from 'execa';
-import { mkdir, rm, writeFile, copyFile } from 'fs/promises';
+import { copyFile, mkdir, rm, writeFile } from 'fs/promises';
+
 import pkg from './package.json';
 
 async function main() {
+  console.log('BUILDING!');
   await rm('dist', {
     force: true,
     recursive: true,
@@ -27,7 +29,7 @@ async function main() {
         exports: 'named',
       },
     }),
-    copyFile('../LICENSE', 'dist/LICENSE'),
+    copyFile('./LICENSE', 'dist/LICENSE'),
     writeFile(
       'dist/package.json',
       JSON.stringify(
